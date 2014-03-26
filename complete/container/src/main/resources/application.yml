@@ -1,0 +1,4 @@
+spring:
+    yarn:
+        appName: gs-yarn-maven
+        applicationDir: /app/gs-yarn-maven/
