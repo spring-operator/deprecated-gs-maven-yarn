@@ -8,6 +8,10 @@ projects: [spring-hadoop]
 :icons: font
 :source-highlighter: prettify
 :project_id: gs-maven-yarn
+:yarn_base_appmaster: gs-maven-yarn-appmaster
+:yarn_base_container: gs-maven-yarn-container
+:yarn_base_client: gs-maven-yarn-client
+:yarn_base_dist: gs-maven-yarn-dist
 This guide walks you through using Maven to build a simple Spring YARN project.
 
 == What you'll build
@@ -37,47 +41,47 @@ include::https://raw.github.com/spring-guides/getting-started-macros/master/crea
 
 Here you create a `ContainerApplication` class.
 
-`container/src/main/java/hello/container/ContainerApplication.java`
+`gs-maven-yarn-container/src/main/java/hello/container/ContainerApplication.java`
 [source,java]
 ----
-include::complete/container/src/main/java/hello/container/ContainerApplication.java[]
+include::complete/gs-maven-yarn-container/src/main/java/hello/container/ContainerApplication.java[]
 ----
 
 Here you create an `AppmasterApplication` class.
 
-`appmaster/src/main/java/hello/appmaster/AppmasterApplication.java`
+`gs-maven-yarn-appmaster/src/main/java/hello/appmaster/AppmasterApplication.java`
 [source,java]
 ----
-include::complete/appmaster/src/main/java/hello/appmaster/AppmasterApplication.java[]
+include::complete/gs-maven-yarn-appmaster/src/main/java/hello/appmaster/AppmasterApplication.java[]
 ----
 
 Here you create a `ClientApplication` class.
 
-`client/src/main/java/hello/client/ClientApplication.java`
+`gs-maven-yarn-client/src/main/java/hello/client/ClientApplication.java`
 [source,java]
 ----
-include::complete/client/src/main/java/hello/client/ClientApplication.java[]
+include::complete/gs-maven-yarn-client/src/main/java/hello/client/ClientApplication.java[]
 ----
 
 Here you create a `application` yaml configuration file for all
 sub-projects.
 
-`container/src/main/resources/application.yml`
+`gs-maven-yarn-container/src/main/resources/application.yml`
 [source,yaml]
 ----
-include::complete/container/src/main/resources/application.yml[]
+include::complete/gs-maven-yarn-container/src/main/resources/application.yml[]
 ----
 
-`appmaster/src/main/resources/application.yml`
+`gs-maven-yarn-appmaster/src/main/resources/application.yml`
 [source,yaml]
 ----
-include::complete/appmaster/src/main/resources/application.yml[]
+include::complete/gs-maven-yarn-appmaster/src/main/resources/application.yml[]
 ----
 
-`client/src/main/resources/application.yml`
+`gs-maven-yarn-client/src/main/resources/application.yml`
 [source,yaml]
 ----
-include::complete/client/src/main/resources/application.yml[]
+include::complete/gs-maven-yarn-client/src/main/resources/application.yml[]
 ----
 
 [[initial]]
@@ -98,87 +102,45 @@ to collect all artifacts together when project is build.
 
 Here you create an appmaster `pom.xml` file.
 
-`appmaster/pom.xml`
+`gs-maven-yarn-appmaster/pom.xml`
 [source,xml]
 ----
-include::complete/appmaster/pom.xml[]
+include::complete/gs-maven-yarn-appmaster/pom.xml[]
 ----
 
 Here you create a container `pom.xml` file.
 
-`container/pom.xml`
+`gs-maven-yarn-container/pom.xml`
 [source,xml]
 ----
-include::complete/container/pom.xml[]
+include::complete/gs-maven-yarn-container/pom.xml[]
 ----
 
 Here you create a client `pom.xml` file.
 
-`client/pom.xml`
+`gs-maven-yarn-client/pom.xml`
 [source,xml]
 ----
-include::complete/client/pom.xml[]
+include::complete/gs-maven-yarn-client/pom.xml[]
 ----
 
 Here you create a distribution `pom.xml` file.
 
-`dist/pom.xml`
+`gs-maven-yarn-dist/pom.xml`
 [source,xml]
 ----
-include::complete/dist/pom.xml[]
+include::complete/gs-maven-yarn-dist/pom.xml[]
 ----
 
 Here you create an assembly `assembly.xml` file.
 
-`dist/assembly.xml`
+`gs-maven-yarn-dist/assembly.xml`
 [source,xml]
 ----
-include::complete/dist/assembly.xml[]
+include::complete/gs-maven-yarn-dist/assembly.xml[]
 ----
 
-== Declare dependencies
-
-Spring for Apache Hadoop provides a transitive dependencies via its
-own maven poms against different Hadoop distribution. This way you
-don't need to worry about which dependencies are actually needed if
-you are building against vanilla Hadoop, Hortonworks Data Platform or
-Cloudera Distribution for Hadoop. 
-
-[source,xml]
-.Vanilla Hadoop 2.2.X
-----
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-yarn-boot</artifactId>
-        <version>2.0.0.RC2</version>
-    </dependency>
-</dependencies>
-----
-
-[source,xml]
-.Hortonworks Data Platform 2.X
-----
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-yarn-boot</artifactId>
-        <version>2.0.0.RC2-hdp20</version>
-    </dependency>
-</dependencies>
-----
-
-[source,xml]
-.Cloudera Distrobution including Hadoop 5.X
-----
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-yarn-boot</artifactId>
-        <version>2.0.0.RC2-cdh5</version>
-    </dependency>
-</dependencies>
-----
+include::https://raw.github.com/spring-guides/getting-started-macros/master/describe_shdp_yarn_deps_maven.adoc[]
 
 == Build Application Packages
 
@@ -186,18 +148,23 @@ Run build.
 
 [source,text]
 ----
-./mvn clean package
+mvn clean package
 ----
 
 You should see three jar files created.
 
 [source,text]
 ----
-dist/target/gs-maven-yarn-dist-0.1.0-dist/
-dist/target/gs-maven-yarn-dist-0.1.0-dist/gs-maven-yarn-container-0.1.0.jar
-dist/target/gs-maven-yarn-dist-0.1.0-dist/gs-maven-yarn-appmaster-0.1.0.jar
-dist/target/gs-maven-yarn-dist-0.1.0-dist/gs-maven-yarn-client-0.1.0.jar
+gs-gradle-maven-dist/target/dist/gs-gradle-maven-client-0.1.0.jar
+gs-gradle-maven-dist/target/dist/gs-gradle-maven-container-0.1.0.jar
+gs-gradle-maven-dist/target/dist/gs-gradle-maven-appmaster-0.1.0.jar
 ----
+
+You can run the project with `cd gs-gradle-maven-dist && java -jar
+target/dist/gs-gradle-maven-client-0.1.0.jar` but we haven't added the
+code to actually submit the YARN application yet. So, all you will see is some
+logging mesages. You will build a complete application that you can submit to
+YARN in the other Getting Started Guides for Spring YARN.
 
 == Summary
 

@@ -16,10 +16,10 @@
     </parent>
 
     <modules>
-        <module>container</module>
-        <module>appmaster</module>
-        <module>client</module>
-        <module>dist</module>
+        <module>gs-maven-yarn-container</module>
+        <module>gs-maven-yarn-appmaster</module>
+        <module>gs-maven-yarn-client</module>
+        <module>gs-maven-yarn-dist</module>
     </modules>
 
     <dependencies>
