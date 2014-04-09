@@ -35,7 +35,7 @@ link:/guides/gs/maven[Building Java Projects with Maven].
 [[scratch]]
 == Set up the project
 
-First you set up a Java project for Gradle to build. To keep the focus on Gradle, make the project as simple as possible for now.
+First you set up a Java project for Maven to build. To keep the focus on Maven, make the project as simple as possible for now.
 
 include::https://raw.github.com/spring-guides/getting-started-macros/master/create_directory_structure_yarn_hello.adoc[]
 
@@ -155,13 +155,13 @@ You should see three jar files created.
 
 [source,text]
 ----
-gs-gradle-maven-dist/target/dist/gs-gradle-maven-client-0.1.0.jar
-gs-gradle-maven-dist/target/dist/gs-gradle-maven-container-0.1.0.jar
-gs-gradle-maven-dist/target/dist/gs-gradle-maven-appmaster-0.1.0.jar
+gs-maven-yarn-dist/target/gs-maven-yarn-dist/gs-maven-yarn-client-0.1.0.jar
+gs-maven-yarn-dist/target/gs-maven-yarn-dist/gs-maven-yarn-container-0.1.0.jar
+gs-maven-yarn-dist/target/gs-maven-yarn-dist/gs-maven-yarn-appmaster-0.1.0.jar
 ----
 
-You can run the project with `cd gs-gradle-maven-dist && java -jar
-target/dist/gs-gradle-maven-client-0.1.0.jar` but we haven't added the
+You can run the project with `java -jar
+gs-maven-yarn-dist/target/dist/gs-maven-yarn-client-0.1.0.jar` but we haven't added the
 code to actually submit the YARN application yet. So, all you will see is some
 logging mesages. You will build a complete application that you can submit to
 YARN in the other Getting Started Guides for Spring YARN.
