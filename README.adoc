@@ -2,7 +2,7 @@
 tags: [maven,hadoop,yarn]
 projects: [spring-hadoop]
 ---
-:spring_boot_version: 1.0.0.RELEASE
+:spring_boot_version: 1.0.2.RELEASE
 :jdk: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 :toc:
 :icons: font
@@ -27,7 +27,7 @@ NOTE: In this guide we are not trying to create fully working YARN application, 
  - {jdk}[JDK 6] or later
 
 
-include::https://raw.github.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 If you're not familiar with gradle, refer to
 link:/guides/gs/maven[Building Java Projects with Maven].
@@ -37,7 +37,7 @@ link:/guides/gs/maven[Building Java Projects with Maven].
 
 First you set up a Java project for Maven to build. To keep the focus on Maven, make the project as simple as possible for now.
 
-include::https://raw.github.com/spring-guides/getting-started-macros/master/create_directory_structure_yarn_hello.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_yarn_hello.adoc[]
 
 Here you create a `ContainerApplication` class.
 
@@ -140,7 +140,7 @@ Here you create an assembly `assembly.xml` file.
 include::complete/gs-maven-yarn-dist/assembly.xml[]
 ----
 
-include::https://raw.github.com/spring-guides/getting-started-macros/master/describe_shdp_yarn_deps_maven.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/describe_shdp_yarn_deps_maven.adoc[]
 
 == Build Application Packages
 
