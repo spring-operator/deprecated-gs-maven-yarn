@@ -169,3 +169,5 @@ YARN in the other Getting Started Guides for Spring YARN.
 == Summary
 
 Congratulations! You have now created a simple yet effective Maven build file for building Spring YARN projects.
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
